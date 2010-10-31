@@ -1,4 +1,5 @@
 Shopos::Application.routes.draw do
+  root :controller => :shops,:action=>:index
   resources :shops
 
   resources :categories do
