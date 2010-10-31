@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
   # GET /shops.xml
   def index
     if params[:search]
-      @shops = Shop.find(:all, :conditions => ['posname like ? or realname like ?',"%#{params[:search]}%","%#{params[:search]}%"])
+      @shops = Shop.find(:all, :conditions => ['UPPER(posname) like ? or UPPER(realname) like ?',"%#{params[:search].upcase}%","%#{params[:search].upcase}%"])
     else
       @shops = Shop.all
 
